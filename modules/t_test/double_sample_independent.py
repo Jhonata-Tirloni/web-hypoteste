@@ -2,10 +2,10 @@
 from scipy import stats
 from numpy import sqrt
 
-def teste_duas_amostras_independentes(variancia_amostra_um, variancia_amostra_dois, 
-                                      tamanho_amostra_um, tamanho_amostra_dois,
-                                      estat_amostra_um, estat_amostra_dois,
-                                      teste_bilateral, teste_esquerda, teste_direita) -> float:
+def teste_duas_amostras_independentes(variancia_amostra_um:float, variancia_amostra_dois:float,
+                                      tamanho_amostra_um:int, tamanho_amostra_dois:int,
+                                      estat_amostra_um:float, estat_amostra_dois:float,
+                                      teste_bilateral:bool, teste_esquerda:bool, teste_direita:bool) -> float:
     """
     Para este teste considera-se que as variâncias das duas amostras são diferentes.
     Um teste de amostras duplas e independentes é um tipo de teste estatístico usado para 
