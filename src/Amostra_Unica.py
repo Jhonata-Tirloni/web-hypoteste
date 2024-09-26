@@ -10,20 +10,17 @@ st.set_page_config(
                 )
 i=0
 # Opções da sidebar do app, renderiza primeiro;
-st.sidebar.image(r'../static/1710959268147.png') 
-st.sidebar.title("Selecionar teste")
-st.sidebar.write("Selecione um tipo de teste abaixo")
-st.sidebar.write("---")
-st.sidebar.button("Amostra única", use_container_width=True)
-st.sidebar.button("Duas amostras, pareadas", use_container_width=True)
-st.sidebar.button("Duas amostras, independentes", use_container_width=True)
-while i < 18: st.sidebar.write(" "); i+=1
+while i < 27: st.sidebar.write(" "); i+=1
 st.sidebar.title("Ajuda e informações")
 st.sidebar.write("---")
 st.sidebar.button("O que é teste de hipótese?", use_container_width=True)
 st.sidebar.button("Sobre o aplicativo", use_container_width=True)
 st.sidebar.button("Como usar", use_container_width=True)
 st.sidebar.button("Contato", use_container_width=True)
+st.sidebar.write(" ")
+st.sidebar.write(" ")
+st.sidebar.write(" ")
+st.sidebar.image(r'../static/1710959268147.png', width=70)
 
 # Layout baseado em containers, parte superior do app;
 container_header = st.container()
