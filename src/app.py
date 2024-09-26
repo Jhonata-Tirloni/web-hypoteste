@@ -17,7 +17,7 @@ st.sidebar.write("---")
 st.sidebar.button("Amostra única", use_container_width=True)
 st.sidebar.button("Duas amostras, pareadas", use_container_width=True)
 st.sidebar.button("Duas amostras, independentes", use_container_width=True)
-while i < 20: st.sidebar.write(" "); i+=1
+while i < 18: st.sidebar.write(" "); i+=1
 st.sidebar.title("Ajuda e informações")
 st.sidebar.write("---")
 st.sidebar.button("O que é teste de hipótese?", use_container_width=True)
@@ -42,8 +42,8 @@ with container_header:
         st.image(r'../static/logo_hypoteste.png', use_column_width=True)
         st.write("")
         st.write("")
-# Inicio do layout baseado em colunas, parte inferior do app;
 
+# Inicio do layout baseado em colunas, parte inferior do app;
 left_column, center_column, right_column = st.columns(3)
 
 with center_column:
