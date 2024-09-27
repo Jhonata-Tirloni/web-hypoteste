@@ -73,10 +73,10 @@ def modal_contato():
     mc_left_column, mc_right_column = st.columns(2)
 
     with mc_left_column:
-        st.image('https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white')
+        st.write("LinkedIn")
         st.write("https://www.linkedin.com/in/jhonata-tirloni/")
     with mc_right_column:
-        st.image('https://img.shields.io/badge/iCloud-3693F3?style=for-the-badge&logo=iCloud&logoColor=white')
+        st.write('E-nail')
         st.write("jhonatatirloni@icloud.com")
 
 # Configurações básicas do app;
