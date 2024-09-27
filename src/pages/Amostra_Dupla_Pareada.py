@@ -102,6 +102,7 @@ st.sidebar.button("Contato", use_container_width=True, on_click=modal_contato)
 st.sidebar.write(" ")
 st.sidebar.write(" ")
 st.sidebar.write(" ")
+st.sidebar.image("https://github.com/Jhonata-Tirloni/web-hypoteste/blob/main/static/1710959268147.png", width=70)
 
 # Layout baseado em containers, parte superior do app;
 container_header = st.container()
@@ -119,7 +120,7 @@ with container_header:
             </p>
             """
         )
-        st.image(r"../static/logo_hypoteste.png", use_column_width=True)
+        st.image("https://github.com/Jhonata-Tirloni/web-hypoteste/blob/main/static/logo_hypoteste.png", use_column_width=True)
         st.header("Teste para amostra dupla independente")
         st.write("")
         st.write("")
@@ -132,7 +133,7 @@ with center_column:
     with container_center_column:
         direction_left_column, direction_center_column = st.columns([0.03, 0.60])
         with direction_left_column:
-            st.image(r"../static/primeiro_passo.png", use_column_width=True)
+            st.image("https://github.com/Jhonata-Tirloni/web-hypoteste/blob/main/static/primeiro_passo.png", use_column_width=True)
         with direction_center_column:
             st.subheader("Selecione a direção do teste")
         st.write(
@@ -142,18 +143,18 @@ with center_column:
         left_center_column, center_center_column, right_center_column = st.columns(3)
         with left_center_column:
             teste_esquerda = st.checkbox(" ", key="bt_esquerda")
-            st.image(r"../static/bt_esquerda.png")
+            st.image("https://github.com/Jhonata-Tirloni/web-hypoteste/blob/main/static/bt_esquerda.png")
         with center_center_column:
             teste_bilateral = st.checkbox(" ", key="bt_bilateral")
-            st.image(r"../static/bt_bilateral.png")
+            st.image("https://github.com/Jhonata-Tirloni/web-hypoteste/blob/main/static/bt_bilateral.png")
         with right_center_column:
             teste_direita = st.checkbox(" ", key="bt_direita")
-            st.image(r"../static/bt_direita.png")
+            st.image("https://github.com/Jhonata-Tirloni/web-hypoteste/blob/main/static/bt_direita.png")
         st.write("")
 
         text_info_left_column, text_info_center_column = st.columns([0.03, 0.60])
         with text_info_left_column:
-            st.image(r"../static/segundo_passo.png", use_column_width=True)
+            st.image("https://github.com/Jhonata-Tirloni/web-hypoteste/blob/main/static/segundo_passo.png", use_column_width=True)
         with text_info_center_column:
             st.subheader("Preencha os campos do teste")
 
