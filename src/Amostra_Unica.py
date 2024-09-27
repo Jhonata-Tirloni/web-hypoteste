@@ -73,10 +73,10 @@ def modal_contato():
     mc_left_column, mc_right_column = st.columns(2)
 
     with mc_left_column:
-        st.write("LinkedIn")
+        st.image('https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white')
         st.write("https://www.linkedin.com/in/jhonata-tirloni/")
     with mc_right_column:
-        st.write('E-nail')
+        st.image('https://img.shields.io/badge/iCloud-3693F3?style=for-the-badge&logo=iCloud&logoColor=white')
         st.write("jhonatatirloni@icloud.com")
 
 # Configurações básicas do app;
@@ -103,7 +103,6 @@ st.sidebar.button("Contato", use_container_width=True, on_click=modal_contato)
 st.sidebar.write(" ")
 st.sidebar.write(" ")
 st.sidebar.write(" ")
-st.sidebar.image(r"../static/1710959268147.png", width=70)
 
 # Layout baseado em containers, parte superior do app;
 container_header = st.container()

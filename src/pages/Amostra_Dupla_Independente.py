@@ -102,7 +102,6 @@ st.sidebar.button("Contato", use_container_width=True, on_click=modal_contato)
 st.sidebar.write(" ")
 st.sidebar.write(" ")
 st.sidebar.write(" ")
-st.sidebar.image(r"../static/1710959268147.png", width=70)
 
 # Layout baseado em containers, parte superior do app;
 container_header = st.container()
