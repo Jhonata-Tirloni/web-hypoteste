@@ -26,7 +26,7 @@ def teste_amostra_unica(variancia_amostral:float, tamanho_amostra:int, estat_amo
         if (teste_bilateral is True or teste_esquerda is True or teste_direita is True )\
             and (tamanho_amostra != '' and estat_amostra != '' and parametro_pop != '' and variancia_amostral != ''):
 
-            t = (float(estat_amostra) - float(parametro_pop))/(float(variancia_amostral)/sqrt(float(tamanho_amostra)))
+            t = (float(estat_amostra) - float(parametro_pop))/(sqrt(float(variancia_amostral))/float(tamanho_amostra))
             p_valor_bicaudal = 2*(1-stats.t.cdf(abs(t), df=graus_de_liberdade))
             p_valor_unicaudal = 1-stats.t.cdf(abs(t), df=graus_de_liberdade)
 

@@ -22,7 +22,7 @@ def teste_duas_amostras_pareadas(variancia_amostra, estat_amostra,
         if (teste_bilateral is True or teste_esquerda is True or teste_direita is True )\
             and (tamanho_amostra != '' and estat_amostra != '' and parametro_pop != '' and variancia_amostra != ''):
 
-            t = estat_amostra/(variancia_amostra/sqrt(tamanho_amostra))
+            t = (estat_amostra - parametro_pop) / (sqrt(variancia_amostra / tamanho_amostra))
             p_valor_bicaudal = 2*(1-stats.t.cdf(abs(t), df=graus_de_liberdade))
             p_valor_unicaudal = 1-stats.t.cdf(abs(t), df=graus_de_liberdade)
 

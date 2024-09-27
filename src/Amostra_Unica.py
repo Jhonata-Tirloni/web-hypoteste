@@ -4,6 +4,64 @@ from numpy import linspace
 from scipy.stats import t as dist_t
 from modules.t_test.single_sample import teste_amostra_unica
 
+@st.dialog("Sobre testes de hipótese", width='large')
+def modal_sobre_teste():
+    """
+        Renderiza um modal com informações sobre teste
+        de hipótese e cases de uso
+    """
+    st.header("O que é?")
+    st.markdown("O teste de hipótese uma maneira de usar dados para decidir se uma afirmação\
+             sobre uma população é verdadeira ou falsa. Imagine que\
+             você quer saber se uma nova estratégia de marketing\
+             realmente aumenta a base de clientes. Você coleta\
+             dados antes e depois da implementação da estratégia\
+             e usa um teste de hipótese para verificar se\
+             o aumento observado é significativo ou apenas por acaso.")
+    st.header("E o teste T?")
+    st.markdown("O teste T é um tipo específico de teste de hipótese que compara\
+                 as médias de dois grupos para ver se são significativamente\
+                 diferentes. Por exemplo, você pode usar um teste T\
+                 para comparar a média de crescimento de clientes em dois\
+                 períodos diferentes, antes e depois de uma campanha de marketing.")
+    st.subheader("E qual o motivo de usarmos o teste T neste app?")
+    st.markdown("Ele é muito usado porque é simples e eficaz para comparar médias,\
+                especialmente quando você tem amostras pequenas e não conhece a variância da população.\
+                Além disso, ele também é confiável em casos de não normalidade em\
+                 distribuições, devido ao teorema do limite central.")
+    st.header("Exemplos de onde usar")
+    st.subheader("Crédito")
+    st.markdown("Suponha que você quer saber se uma nova política de crédito está\
+                 realmente ajudando a aumentar o número de aprovações de crédito.\
+                 Você aplica a nova política em um grupo de clientes e compara a\
+                 taxa de aprovação desse grupo com a taxa de um grupo que não foi\
+                 submetido à nova política. O teste T ajudará a determinar se a\
+                 diferença nas taxas de aprovação é significativa.")
+    st.subheader("Planejamentos empresariais")
+    st.markdown("Imagine que sua empresa financeira está planejando expandir\
+                 para uma nova região e quer saber se a demanda por crédito \
+                nessa região é suficiente para justificar a expansão. Você \
+                pode usar um teste de hipótese para comparar a média de \
+                solicitações de crédito na nova região com a média de uma \
+                região onde a empresa já opera com sucesso. Se o teste T \
+                mostrar que a diferença é significativa, isso pode ajudar a\
+                 tomar uma decisão mais informada sobre a expansão.")
+
+@st.dialog("Sobre o aplicativo")
+def modal_sobre_app():
+    """
+        Renderiza um modal com informações rápidas sobre o aplicativo.
+    """
+    st.markdown("O aplicativo Hypoteste foi criado para facilitar o acesso a\
+                realização de testes de hipótese em qualquer local e momento, \
+                com uma interface amigável e de fácil uso. O app \
+                utiliza testes T, para realizar suas conclusões. Antes de usar\
+                 admite-se que o usuário tenha os valores solicidados \
+                calculados de forma prévia.")
+    st.write("Também existe uma versão portátil para rodar em\
+              jupyter notebooks, no repositório deste aplicativo!\
+              Sinta-se a vontade para usá-lo conforme necessário.")
+
 @st.dialog("Fale comigo!")
 def modal_contato():
     """
@@ -39,8 +97,8 @@ while i < 27:
     i += 1
 st.sidebar.title("Ajuda e informações")
 st.sidebar.write("---")
-st.sidebar.button("O que é teste de hipótese?", use_container_width=True)
-st.sidebar.button("Sobre o aplicativo", use_container_width=True)
+st.sidebar.button("O que é teste de hipótese?", use_container_width=True, on_click=modal_sobre_teste)
+st.sidebar.button("Sobre o aplicativo", use_container_width=True, on_click=modal_sobre_app)
 st.sidebar.button("Contato", use_container_width=True, on_click=modal_contato)
 st.sidebar.write(" ")
 st.sidebar.write(" ")
