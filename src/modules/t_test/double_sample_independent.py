@@ -1,6 +1,6 @@
-"""import dos módulos para calculo do valro T, graus de liberdade e raiz quadrada"""
 from scipy import stats
 from numpy import sqrt
+from streamlit import error
 
 def teste_duas_amostras_independentes(variancia_amostra_um:float, variancia_amostra_dois:float,
                                       tamanho_amostra_um:int, tamanho_amostra_dois:int,
@@ -43,7 +43,7 @@ def teste_duas_amostras_independentes(variancia_amostra_um:float, variancia_amos
 
             p_valor_unicaudal = (1 - stats.t.cdf(abs(t), df=graus_de_liberdade))
 
-        return t, p_valor_bicaudal, p_valor_unicaudal, alpha_unicaudal, alpha_bicaudal
+        return t, p_valor_bicaudal, p_valor_unicaudal, alpha_unicaudal, alpha_bicaudal, graus_de_liberdade
 
     except Exception as e:
-        return e
+        return error(str(e)+". Porfavor, tente novamente!", icon="🚨")

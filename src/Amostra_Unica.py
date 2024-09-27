@@ -4,6 +4,23 @@ from numpy import linspace
 from scipy.stats import t as dist_t
 from modules.t_test.single_sample import teste_amostra_unica
 
+@st.dialog("Fale comigo!")
+def modal_contato():
+    """
+        Renderiza um modal com informações de contato ao
+        criador do app.
+    """
+    st.write("Obrigado por se interessar no Hypoteste!")
+    st.write("Você pode entrar em contato comigo via e-mail ou LinkedIn:")
+    mc_left_column, mc_right_column = st.columns(2)
+
+    with mc_left_column:
+        st.image('https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white')
+        st.write("https://www.linkedin.com/in/jhonata-tirloni/")
+    with mc_right_column:
+        st.image('https://img.shields.io/badge/iCloud-3693F3?style=for-the-badge&logo=iCloud&logoColor=white')
+        st.write("jhonatatirloni@icloud.com")
+
 # Configurações básicas do app;
 st.set_page_config(
     layout="wide",
@@ -15,6 +32,7 @@ st.set_page_config(
     },
 )
 i = 0
+
 # Opções da sidebar do app, renderiza primeiro;
 while i < 27:
     st.sidebar.write(" ")
@@ -23,8 +41,7 @@ st.sidebar.title("Ajuda e informações")
 st.sidebar.write("---")
 st.sidebar.button("O que é teste de hipótese?", use_container_width=True)
 st.sidebar.button("Sobre o aplicativo", use_container_width=True)
-st.sidebar.button("Como usar", use_container_width=True)
-st.sidebar.button("Contato", use_container_width=True)
+st.sidebar.button("Contato", use_container_width=True, on_click=modal_contato)
 st.sidebar.write(" ")
 st.sidebar.write(" ")
 st.sidebar.write(" ")
@@ -47,6 +64,7 @@ with container_header:
             """
         )
         st.image(r"../static/logo_hypoteste.png", use_column_width=True)
+        st.header("Teste para amostra única")
         st.write("")
         st.write("")
 
@@ -314,7 +332,66 @@ with center_column:
                     plt.ylabel("Densidade de probabilidade")
                     plt.xlabel("Valores")
                     st.pyplot(plt.gcf())
+                
+                elif teste_esquerda is True and t < 0 and t <= alpha_unicaudal * -1:
+                    st.write(
+                        f"Valor T tabelado: Para resultado negativo temos {(alpha_unicaudal)*-1}"
+                    )
+                    st.write(f"Valor T do teste: {t}")
+                    st.write(f"Valor P do teste: {p_valor_unicaudal}")
+                    st.write("Valor T menor do que o valor alpha tabelado.")
+                    st.write(
+                        "Recomendação: Não rejeitar a hipótese nula, \
+                             e desfavorecer a hipótese alternativa. "
+                    )
+                    st.write(
+                        "O gráfico abaixo demonstra a distribuição T,\
+                              os valores críticos em vermelho e o resultado\
+                              do teste na linha preta."
+                    )
+                    x1_fill = linspace(-4, alpha_bicaudal * -1, 1000)
+                    plt.fill_between(
+                        x1_fill, 0, dist_t.pdf(x1_fill, df), color="red", alpha=0.3
+                    )
+                    plt.axvline(
+                        x=(lambda t: -4 if t < -4 else (4 if t > 4 else t))(t),
+                        color="black",
+                        linestyle="--",
+                    )
+                    plt.title("Distribuição T, região crítica e posição de T")
+                    plt.ylabel("Densidade de probabilidade")
+                    plt.xlabel("Valores")
+                    st.pyplot(plt.gcf())
 
+                elif teste_esquerda is True and t < 0 and t > alpha_unicaudal * -1:
+                    st.write(
+                        f"Valor T tabelado: Para resultado negativo temos {(alpha_unicaudal)*-1}"
+                    )
+                    st.write(f"Valor T do teste: {t}")
+                    st.write(f"Valor P do teste: {p_valor_unicaudal}")
+                    st.write("Valor T maior do que o valor alpha tabelado.")
+                    st.write(
+                        "Recomendação: Rejeitar a hipótese nula, e \
+                             favorecer a hipótese alternativa."
+                    )
+                    st.write(
+                        "O gráfico abaixo demonstra a distribuição T, \
+                            os valores críticos em vermelho e o resultado do teste na linha preta."
+                    )
+                    x1_fill = linspace(-4, alpha_bicaudal * -1, 1000)
+                    plt.fill_between(
+                        x1_fill, 0, dist_t.pdf(x1_fill, df), color="red", alpha=0.3
+                    )
+                    plt.axvline(
+                        x=(lambda t: -4 if t < -4 else (4 if t > 4 else t))(t),
+                        color="black",
+                        linestyle="--",
+                    )
+                    plt.title("Distribuição T, região crítica e posição de T")
+                    plt.ylabel("Densidade de probabilidade")
+                    plt.xlabel("Valores")
+                    st.pyplot(plt.gcf())
+                
                 # Testes unilaterais a direita
                 elif teste_direita is True and t > 0 and t <= alpha_unicaudal:
                     st.write(
@@ -347,7 +424,7 @@ with center_column:
                     plt.legend()
                     st.pyplot(plt.gcf())
 
-                elif teste_direita is True and t > 0 and t > alpha_unicaudal:
+                elif teste_direita is True and t > 0 and t >= alpha_unicaudal:
                     st.write(
                         f"Valor T tabelado: Para resultado positivo temos {alpha_unicaudal}"
                     )
@@ -377,4 +454,59 @@ with center_column:
                     plt.ylabel("Densidade de probabilidade")
                     plt.xlabel("Valores")
                     plt.legend()
+                    st.pyplot(plt.gcf())
+
+                elif teste_direita is True and t < 0 and t <= alpha_unicaudal * -1:
+                    st.write(f"Valor T tabelado: Para resultado positivo temos {alpha_unicaudal}")
+                    st.write(f"Valor T do teste: {t}")
+                    st.write(f"Valor P do teste: {p_valor_unicaudal}")
+                    st.write("Valor T menor do que o valor alpha tabelado.")
+                    st.write(
+                        "Recomendação: Não rejeitar a hipótese nula, \
+                             e desfavorecer a hipótese alternativa. "
+                    )
+                    st.write(
+                        "O gráfico abaixo demonstra a distribuição T,\
+                              os valores críticos em vermelho e o resultado\
+                              do teste na linha preta."
+                    )
+                    x2_fill = linspace(4, alpha_unicaudal, 1000)
+                    plt.fill_between(
+                        x2_fill, 0, dist_t.pdf(x2_fill, df), color="red", alpha=0.3
+                    )
+                    plt.axvline(
+                        x=(lambda t: -4 if t < -4 else (4 if t > 4 else t))(t),
+                        color="black",
+                        linestyle="--",
+                    )
+                    plt.title("Distribuição T, região crítica e posição de T")
+                    plt.ylabel("Densidade de probabilidade")
+                    plt.xlabel("Valores")
+                    st.pyplot(plt.gcf())
+
+                elif teste_direita is True and t < 0 and t > alpha_unicaudal * -1:
+                    st.write(f"Valor T tabelado: Para resultado positivo temos {alpha_unicaudal}")
+                    st.write(f"Valor T do teste: {t}")
+                    st.write(f"Valor P do teste: {p_valor_unicaudal}")
+                    st.write("Valor T maior do que o valor alpha tabelado.")
+                    st.write(
+                        "Recomendação: Rejeitar a hipótese nula, e \
+                             favorecer a hipótese alternativa."
+                    )
+                    st.write(
+                        "O gráfico abaixo demonstra a distribuição T, \
+                            os valores críticos em vermelho e o resultado do teste na linha preta."
+                    )
+                    x2_fill = linspace(4, alpha_unicaudal, 1000)
+                    plt.fill_between(
+                        x2_fill, 0, dist_t.pdf(x2_fill, df), color="red", alpha=0.3
+                    )
+                    plt.axvline(
+                        x=(lambda t: -4 if t < -4 else (4 if t > 4 else t))(t),
+                        color="black",
+                        linestyle="--",
+                    )
+                    plt.title("Distribuição T, região crítica e posição de T")
+                    plt.ylabel("Densidade de probabilidade")
+                    plt.xlabel("Valores")
                     st.pyplot(plt.gcf())
