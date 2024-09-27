@@ -132,8 +132,6 @@ with center_column:
     container_center_column = st.container()
     with container_center_column:
         direction_left_column, direction_center_column = st.columns([0.03, 0.60])
-        with direction_left_column:
-            st.image("/mount/src/web-hypoteste/static/primeiro_passo.png", use_column_width=True)
         with direction_center_column:
             st.subheader("Selecione a direção do teste")
         st.write(
@@ -153,8 +151,6 @@ with center_column:
         st.write("")
 
         text_info_left_column, text_info_center_column = st.columns([0.03, 0.60])
-        with text_info_left_column:
-            st.image("/mount/src/web-hypoteste/static/segundo_passo.png", use_column_width=True)
         with text_info_center_column:
             st.subheader("Preencha os campos do teste")
 
