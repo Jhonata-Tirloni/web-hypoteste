@@ -13,19 +13,5 @@ O Hypoteste foi desenvolvido para ser utilizado tanto localmente, caso queira cl
 Para usar a versão online hospedada via streamlit é muito simples, basta acessar [este link](https://web-hypoteste.streamlit.app/), selecionar o tipo de teste no lado esquerdo, preencher os campos e clicar em "realizar teste". 
 
 ## 👨🏻‍💻 Usando localmente
-Caso queira utilizar o aplicativo de forma local, basta seguir os paços abaixo:
-
-1. Clone este repositório abrindo um terminal e digitando o comando abaixo:
-```
-git clone https://gitlab.com/data-science-apps/hypoteste.git
-```
-2. Abra a pasta onde os dados foram clonados e abra um terminal
-3. Instale as dependências do projeto com o comando abaixo
-```
-pip install -r requirements.txt
-```
-5. Feito isso, digite o comando abaixo no terminal
-```
-streamlit run Amostra_Unica.py
-```
-Ao fazer isso, o streamlit irá abrir um navegador com o aplicativo sendo executado em localhost. Ao mesmo tempo, é possível realizar o deploy do app localmente para toda a rede.
+Caso queira utilizar o aplicativo de forma local use a partir do repositório:
+https://github.com/Jhonata-Tirloni/desktop-hypoteste
