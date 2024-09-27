@@ -10,7 +10,7 @@ O app utiliza testes T, para realizar suas conclusões. Antes de usar admite-se 
 O Hypoteste foi desenvolvido para ser utilizado tanto localmente, caso queira clonar e fazer suas modificações, quanto online através de um deploy do streamlit.
 
 ## 🛜 Usando online
-Para usar a versão online hospedada via streamlit é muito simples, basta acessar este link, selecionar o tipo de teste no lado esquerdo, preencher os campos e clicar em "realizar teste". 
+Para usar a versão online hospedada via streamlit é muito simples, basta acessar [este link](https://web-hypoteste.streamlit.app/), selecionar o tipo de teste no lado esquerdo, preencher os campos e clicar em "realizar teste". 
 
 ## 👨🏻‍💻 Usando localmente
 Caso queira utilizar o aplicativo de forma local, basta seguir os paços abaixo:
