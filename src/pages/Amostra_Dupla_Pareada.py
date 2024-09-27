@@ -120,7 +120,7 @@ with container_header:
             </p>
             """
         )
-        st.image("https://github.com/Jhonata-Tirloni/web-hypoteste/blob/main/static/logo_hypoteste.png", use_column_width=True)
+        st.image("web-hypoteste/static/logo_hypoteste.png", use_column_width=True)
         st.header("Teste para amostra dupla independente")
         st.write("")
         st.write("")
