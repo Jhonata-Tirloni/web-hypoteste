@@ -3,6 +3,3 @@ base="light"
 primaryColor = "#7ac187"
 secondaryBackgroundColor="#edffec"
 font="sans serif"
-
-[server]
-enableStaticServing = true
